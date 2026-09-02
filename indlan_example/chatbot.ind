@@ -1,0 +1,19 @@
+// FAQ CHATBOT
+
+chhap("================================")
+chhap("       INDLAN FAQ CHATBOT")
+chhap("================================")
+
+maano sawaal = aalao("Aapka sawaal: ")
+
+agar sawaal == "indlan kya hai" {
+    chhap("IndLan ek programming language hai jo English aur Hindi keywords support karti hai.")
+} nahito_agar sawaal == "indlan kisne banayi hai" {
+    chhap("IndLan ko Bhavya S Solanki ne banaya hai.")
+} nahito_agar sawaal == "indlan ka extension kya hai" {
+    chhap("IndLan files ka extension .ind hai.")
+} nahito_agar sawaal == "hello" {
+    chhap("Namaste! Main IndLan FAQ Chatbot hoon.")
+} nahito {
+    chhap("Sorry, mujhe is sawaal ka answer nahi pata.")
+}

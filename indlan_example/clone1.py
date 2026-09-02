@@ -1,0 +1,133 @@
+import indlan as ind
+
+sms = r'''
+// =====================================
+//      IndLan Student Management System
+// =====================================
+
+maano students = []
+
+kaam student_jodo() {
+    chhap("\n===== STUDENT JODO =====")
+
+    maano naam = aalao("Student ka naam: ")
+    maano umar = number_dalao("Student ki umar: ")
+    maano course = aalao("Course: ")
+    maano phone = aalao("Phone number: ")
+
+    maano student = {
+        "naam": naam,
+        "umar": umar,
+        "course": course,
+        "phone": phone
+    }
+
+    students.append(student)
+
+    chhap("Student successfully add ho gaya!")
+}
+
+kaam students_dikhao() {
+    chhap("\n===== SABHI STUDENTS =====")
+
+    agar len(students) == 0 {
+        chhap("Koi student nahi mila.")
+    } nahito {
+        maano i = 1
+
+        pratyek student in students {
+            chhap(f"\nStudent {i}")
+            chhap(f"Naam: {student["naam"]}")
+            chhap(f"Umar: {student["umar"]}")
+            chhap(f"Course: {student["course"]}")
+            chhap(f"Phone: {student["phone"]}")
+
+            i += 1
+        }
+    }
+}
+
+kaam student_khojo() {
+    chhap("\n===== STUDENT KHOJO =====")
+
+    maano naam = aalao("Student ka naam: ")
+    maano mila = galat
+
+    pratyek student in students {
+        agar student["naam"] == naam {
+            chhap("\nStudent mil gaya!")
+            chhap(f"Naam: {student["naam"]}")
+            chhap(f"Umar: {student["umar"]}")
+            chhap(f"Course: {student["course"]}")
+            chhap(f"Phone: {student["phone"]}")
+
+            mila = sahi
+        }
+    }
+
+    agar mila == galat {
+        chhap("Student nahi mila.")
+    }
+}
+
+kaam student_hatao() {
+    chhap("\n===== STUDENT HATAO =====")
+
+    maano naam = aalao("Student ka naam: ")
+
+    maano i = 0
+    maano mila = galat
+
+    jabtak i < len(students) {
+        agar students[i]["naam"] == naam {
+            students.pop(i)
+            mila = sahi
+            break
+        }
+
+        i += 1
+    }
+
+    agar mila == sahi {
+        chhap("Student delete ho gaya!")
+    } nahito {
+        chhap("Student nahi mila.")
+    }
+}
+
+
+// =====================================
+//             MAIN MENU
+// =====================================
+
+jabtak sahi {
+
+    chhap("\n================================")
+    chhap("    STUDENT MANAGEMENT SYSTEM")
+    chhap("================================")
+
+    chhap("1. Student Jodo")
+    chhap("2. Students Dikhao")
+    chhap("3. Student Khojo")
+    chhap("4. Student Hatao")
+    chhap("0. Exit")
+
+    maano choice = number_dalao("Apni choice chuno: ")
+
+    agar choice == 1 {
+        student_jodo()
+    } nahito_agar choice == 2 {
+        students_dikhao()
+    } nahito_agar choice == 3 {
+        student_khojo()
+    } nahito_agar choice == 4 {
+        student_hatao()
+    } nahito_agar choice == 0 {
+        chhap("Program band ho raha hai...")
+        break
+    } nahito {
+        chhap("Invalid choice!")
+    }
+}
+'''
+ind.run(sms)

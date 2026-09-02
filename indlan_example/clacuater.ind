@@ -1,0 +1,30 @@
+chhap("Swagat hai IndLan Calculator mein!")
+
+maano num1 = number_dalao("Pehla number dalo: ")
+maano num2 = number_dalao("Dusra number dalo: ")
+
+chhap("Kya karna chahte ho?")
+chhap("1. Jodna")
+chhap("2. Ghatana")
+chhap("3. Gunna")
+chhap("4. Bhag karna")
+
+maano choice = number_dalao("Apna vikalp dalo (1-4): ")
+
+agar choice == 1 {
+    chhap(f"Jod: {num1 + num2}")
+}
+nahito_agar choice == 2 {
+    chhap(f"Ghat: {num1 - num2}")
+}
+nahito_agar choice == 3 {
+    chhap(f"Gunna: {num1 * num2}")
+}
+nahito_agar choice == 4 {
+    chhap(f"Bhag: {num1 / num2}")
+}
+nahito {
+    chhap("Galat vikalp dala hai.")
+}
+
+chhap("Dhanyavaad IndLan Calculator use karne ke liye!")
