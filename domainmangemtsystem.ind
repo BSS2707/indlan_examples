@@ -1,0 +1,163 @@
+chhap("======================================")
+chhap("       DOMAIN MANAGEMENT SYSTEM")
+chhap("======================================")
+
+maano domains = []
+
+jabtak sahi {
+
+    chhap("")
+    chhap("======================================")
+    chhap("       DOMAIN MANAGEMENT SYSTEM")
+    chhap("======================================")
+    chhap("1. Add Domain")
+    chhap("2. View Domains")
+    chhap("3. Search Domain")
+    chhap("4. Delete Domain")
+    chhap("5. Update Domain")
+    chhap("6. Exit")
+    chhap("")
+
+    maano choice = number_dalao("Enter your choice: ")
+
+    agar choice == 1 {
+
+        chhap("")
+        chhap("========== ADD DOMAIN ==========")
+
+        maano domain = aalao("Enter domain name: ")
+
+        domains.append(domain)
+
+        chhap("Domain added successfully!")
+
+    } nahito_agar choice == 2 {
+
+        chhap("")
+        chhap("========== DOMAIN LIST ==========")
+
+        agar len(domains) == 0 {
+
+            chhap("No domains found.")
+
+        } nahito {
+
+            maano i = 1
+
+            pratyek domain in domains {
+
+                chhap(i, ". ", domain)
+
+                i += 1
+            }
+        }
+
+    } nahito_agar choice == 3 {
+
+        chhap("")
+        chhap("========== SEARCH DOMAIN ==========")
+
+        maano search = aalao("Enter domain to search: ")
+        maano mila = galat
+
+        pratyek domain in domains {
+
+            agar domain == search {
+
+                chhap("")
+                chhap("Domain found!")
+                chhap("Domain: ", domain)
+
+                mila = sahi
+            }
+        }
+
+        agar mila == galat {
+
+            chhap("Domain not found.")
+        }
+
+    } nahito_agar choice == 4 {
+
+        chhap("")
+        chhap("========== DELETE DOMAIN ==========")
+
+        maano domain = aalao("Enter domain to delete: ")
+
+        maano mila = galat
+        maano i = 0
+
+        jabtak i < len(domains) {
+
+            agar domains[i] == domain {
+
+                domains.pop(i)
+
+                mila = sahi
+
+                break
+            }
+
+            i += 1
+        }
+
+        agar mila == sahi {
+
+            chhap("Domain deleted successfully!")
+
+        } nahito {
+
+            chhap("Domain not found.")
+        }
+
+    } nahito_agar choice == 5 {
+
+        chhap("")
+        chhap("========== UPDATE DOMAIN ==========")
+
+        maano old_domain = aalao("Enter old domain: ")
+
+        maano mila = galat
+        maano i = 0
+
+        jabtak i < len(domains) {
+
+            agar domains[i] == old_domain {
+
+                maano new_domain = aalao("Enter new domain: ")
+
+                domains[i] = new_domain
+
+                mila = sahi
+
+                break
+            }
+
+            i += 1
+        }
+
+        agar mila == sahi {
+
+            chhap("Domain updated successfully!")
+
+        } nahito {
+
+            chhap("Domain not found.")
+        }
+
+    } nahito_agar choice == 6 {
+
+        chhap("")
+        chhap("======================================")
+        chhap("Thank you for using Domain Management System.")
+        chhap("Goodbye!")
+        chhap("======================================")
+
+        break
+
+    } nahito {
+
+        chhap("")
+        chhap("Invalid choice! Please try again.")
+    }
+}
