@@ -1,0 +1,32 @@
+aayat pandas ke_roop_mein pd
+aayat numpy ke_roop_mein np
+aayat matplotlib.pyplot ke_roop_mein plt
+
+se sklearn.model_selection aayat train_test_split
+se sklearn.ensemble aayat RandomForestClassifier
+se sklearn.metrics aayat satikta_ank
+
+chhap("=== IndLan Data Science Pipeline ===")
+
+maano X = np.sarni([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9]])
+maano y = np.sarni([0, 0, 0, 0, 1, 1, 1, 1])
+
+maano X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.25,
+    random_state=42
+)
+
+maano model = RandomForestClassifier(random_state=42)
+model.sikhao(X_train, y_train)
+
+maano prediction = model.bhavishyavani(X_test)
+chhap("Predictions:", prediction)
+chhap("Accuracy:", satikta_ank(y_test, prediction))
+
+plt.rekha(prediction)
+plt.sheershak("Prediction Results")
+plt.jaal(true)
+plt.dikhao()
+
