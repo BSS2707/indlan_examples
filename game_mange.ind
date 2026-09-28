@@ -1,0 +1,163 @@
+chhap("======================================")
+chhap("       GAMING MANAGEMENT SYSTEM")
+chhap("======================================")
+
+maano games = []
+
+jabtak sahi {
+
+    chhap("")
+    chhap("======================================")
+    chhap("       GAMING MANAGEMENT SYSTEM")
+    chhap("======================================")
+    chhap("1. Add Game")
+    chhap("2. View Games")
+    chhap("3. Search Game")
+    chhap("4. Delete Game")
+    chhap("5. Update Game")
+    chhap("6. Exit")
+    chhap("")
+
+    maano choice = number_dalao("Enter your choice: ")
+
+    agar choice == 1 {
+
+        chhap("")
+        chhap("========== ADD GAME ==========")
+
+        maano game = aalao("Enter game name: ")
+
+        games.append(game)
+
+        chhap("Game added successfully!")
+
+    } nahito_agar choice == 2 {
+
+        chhap("")
+        chhap("========== GAME LIST ==========")
+
+        agar len(games) == 0 {
+
+            chhap("No games found.")
+
+        } nahito {
+
+            maano i = 1
+
+            pratyek game in games {
+
+                chhap(i, ". ", game)
+
+                i += 1
+            }
+        }
+
+    } nahito_agar choice == 3 {
+
+        chhap("")
+        chhap("========== SEARCH GAME ==========")
+
+        maano search = aalao("Enter game name to search: ")
+        maano mila = galat
+
+        pratyek game in games {
+
+            agar game == search {
+
+                chhap("")
+                chhap("Game found!")
+                chhap("Game: ", game)
+
+                mila = sahi
+            }
+        }
+
+        agar mila == galat {
+
+            chhap("Game not found.")
+        }
+
+    } nahito_agar choice == 4 {
+
+        chhap("")
+        chhap("========== DELETE GAME ==========")
+
+        maano game = aalao("Enter game name to delete: ")
+
+        maano mila = galat
+        maano i = 0
+
+        jabtak i < len(games) {
+
+            agar games[i] == game {
+
+                games.pop(i)
+
+                mila = sahi
+
+                break
+            }
+
+            i += 1
+        }
+
+        agar mila == sahi {
+
+            chhap("Game deleted successfully!")
+
+        } nahito {
+
+            chhap("Game not found.")
+        }
+
+    } nahito_agar choice == 5 {
+
+        chhap("")
+        chhap("========== UPDATE GAME ==========")
+
+        maano old_game = aalao("Enter old game name: ")
+
+        maano mila = galat
+        maano i = 0
+
+        jabtak i < len(games) {
+
+            agar games[i] == old_game {
+
+                maano new_game = aalao("Enter new game name: ")
+
+                games[i] = new_game
+
+                mila = sahi
+
+                break
+            }
+
+            i += 1
+        }
+
+        agar mila == sahi {
+
+            chhap("Game updated successfully!")
+
+        } nahito {
+
+            chhap("Game not found.")
+        }
+
+    } nahito_agar choice == 6 {
+
+        chhap("")
+        chhap("======================================")
+        chhap("Thank you for using Gaming Management System.")
+        chhap("Goodbye!")
+        chhap("======================================")
+
+        break
+
+    } nahito {
+
+        chhap("")
+        chhap("Invalid choice! Please try again.")
+    }
+}
