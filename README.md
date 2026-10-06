@@ -1,7 +1,7 @@
 # IndLan
 
 > A Programming Language for India — Code in Hindi, English, or Both.
-> Indlan is not python it is create in pyhton
+
 
 IndLan (Indian Language) is a programming language designed to make coding more natural and accessible for Indian programmers. It supports both English and Hindi-inspired keywords, allowing developers to write programs in the language style they prefer.
 
