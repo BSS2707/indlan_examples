@@ -1,0 +1,52 @@
+maano books = []
+
+kaam book_jodo() {
+    chhap("\n===== BOOK JODO =====")
+
+    maano naam = aalao("Book ka naam: ")
+    maano lekhak = aalao("Author ka naam: ")
+    maano quantity = number_dalao("Kitni books hain: ")
+
+    maano book = {
+        "naam": naam,
+        "lekhak": lekhak,
+        "quantity": quantity
+    }
+
+    books.append(book)
+    chhap("Book successfully add ho gayi!")
+}
+
+kaam books_dikhao() {
+    chhap("\n===== BOOK LIST =====")
+
+    agar len(books) == 0 {
+        chhap("Koi book nahi mili.")
+    } nahito {
+        pratyek book in books {
+            chhap(f"Book: {book['naam']}")
+            chhap(f"Author: {book['lekhak']}")
+            chhap(f"Quantity: {book['quantity']}")
+        }
+    }
+}
+
+jabtak sahi {
+    chhap("\n===== LIBRARY MANAGEMENT =====")
+    chhap("1. Book Jodo")
+    chhap("2. Books Dikhao")
+    chhap("0. Exit")
+
+    maano choice = number_dalao("Choice chuno: ")
+
+    agar choice == 1 {
+        book_jodo()
+    } nahito_agar choice == 2 {
+        books_dikhao()
+    } nahito_agar choice == 0 {
+        chhap("Library system band ho raha hai.")
+        roko
+    } nahito {
+        chhap("Invalid choice!")
+    }
+}
